@@ -11,3 +11,24 @@ npm install rox-browser --save
 
 # For TypeScript projects, also add the types
 npm install @types/rox-browser --save
+
+
+import Rox from 'rox-browser';
+
+const flags = {
+  myFlag: new Rox.Flag(),
+};
+
+async function initPlatform() {
+  const options = {
+  };
+
+  Rox.register('', flags);
+  await Rox.setup('658db005-58f4-4bb9-8f2f-92e1bc433f44', options);
+
+  if (flags.myFlag.isEnabled()) {
+    // Your flag-gated code here
+  }
+}
+
+initPlatform();
